@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Варіанти першого екрана · Болгарія 2027</title>
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600;700&display=swap&subset=cyrillic" rel="stylesheet">
+  <style>
+    :root {
+      --wine: #4d1b20; --wine-deep: #2e0e12; --wine-light: #6a2a31;
+      --gold: #f0b44c; --gold-soft: #e9c27a; --cream: #f4e0df;
+      --muted: rgba(244,224,223,.72); --faint: rgba(244,224,223,.45);
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #1d0a0d; color: var(--cream); font-family: var(--sans); line-height: 1.6; }
+    img { display: block; max-width: 100%; height: auto; }
+    h1 { font-family: var(--serif); font-weight: 600; margin: 0; line-height: 1.04; }
+    h1 em { display: block; font-style: italic; font-weight: 500; color: var(--gold); }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    .eyebrow { margin: 0 0 14px; font-size: 12px; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--gold-soft); }
+    .sub { color: var(--muted); font-size: 17px; margin: 20px 0 0; max-width: 520px; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 26px; border-radius: 999px; font: 600 15px/1 var(--sans); text-decoration: none; border: 1px solid transparent; cursor: pointer; white-space: nowrap; }
+    .btn svg { width: 18px; height: 18px; }
+    .btn-gold { background: var(--gold); color: var(--wine-deep); box-shadow: 0 10px 30px rgba(240,180,76,.25); }
+    .btn-ghost { border-color: rgba(244,224,223,.35); color: var(--cream); }
+    .btn-dark { background: var(--wine-deep); color: var(--cream); }
+
+    .variant-tag {
+      background: #f0b44c; color: #2e0e12; text-align: center;
+      font: 700 13px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; padding: 12px;
+    }
+    .hero {
+      position: relative; overflow: hidden;
+      padding: 56px 0 72px;
+      background:
+        radial-gradient(ellipse 60% 60% at 30% 40%, var(--wine-light) 0%, rgba(106,42,49,0) 70%),
+        radial-gradient(ellipse at 80% 120%, var(--wine-deep) 0%, rgba(46,14,18,0) 60%),
+        var(--wine);
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .07;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
+    .hero > .wrap { position: relative; }
+    .facts { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 26px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 14px; }
+    .facts li::before { content: "✦"; color: var(--gold); margin-right: 8px; font-size: 10px; }
+
+    /* ========== A: boarding pass ========== */
+    .a-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
+    .a-logo { width: 150px; margin: 0 0 30px -6px; }
+    .a h1 { font-size: clamp(46px, 6vw, 80px); }
+    .a h1 em { font-size: .55em; margin-top: 12px; }
+    .ticket {
+      position: relative;
+      background: var(--cream); color: var(--wine-deep);
+      border-radius: 22px;
+      box-shadow: 0 30px 60px rgba(0,0,0,.35);
+      transform: rotate(1.5deg);
+    }
+    .ticket-head {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 26px; background: var(--wine-deep); color: var(--gold);
+      border-radius: 22px 22px 0 0;
+      font-size: 12px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+    }
+    .ticket-head span:last-child { color: var(--cream); letter-spacing: .1em; }
+    .ticket-route { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; padding: 24px 26px 6px; }
+    .ticket-route small { display: block; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #8a5a5e; font-weight: 600; }
+    .ticket-route b { font-family: var(--serif); font-size: 30px; line-height: 1.1; }
+    .ticket-route .to { text-align: right; }
+    .ticket-route .line { width: 70px; height: 2px; background: repeating-linear-gradient(90deg, var(--wine) 0 6px, transparent 6px 11px); position: relative; }
+    .ticket-route .line::after { content: "🚌"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -55%); font-size: 18px; }
+    .ticket-info { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 14px 26px 22px; font-size: 13px; }
+    .ticket-info small { display: block; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: #8a5a5e; font-weight: 600; }
+    .ticket-info b { font-weight: 600; }
+    .ticket-cut { position: relative; height: 0; border-top: 2px dashed rgba(77,27,32,.25); margin: 0 18px; }
+    .ticket-cut::before, .ticket-cut::after { content: ""; position: absolute; top: -15px; width: 28px; height: 28px; border-radius: 50%; background: var(--wine); }
+    .ticket-cut::before { left: -32px; } .ticket-cut::after { right: -32px; }
+    .ticket-price { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; padding: 22px 26px 26px; flex-wrap: wrap; }
+    .ticket-price small { display: block; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #8a5a5e; font-weight: 600; }
+    .ticket-price strong { font-family: var(--serif); font-size: 50px; line-height: 1; font-weight: 700; }
+    .ticket-price p { margin: 4px 0 0; font-size: 12.5px; color: #6d3f43; }
+    .ticket-stamp {
+      position: absolute; top: -18px; right: -14px;
+      padding: 8px 14px; border-radius: 10px;
+      background: var(--gold); color: var(--wine-deep);
+      font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      transform: rotate(6deg); box-shadow: 0 8px 18px rgba(0,0,0,.25);
+    }
+    .a-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+
+    /* ========== B: logo left + gold ribbon offer ========== */
+    .b-top { display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: center; }
+    .b-logo { width: clamp(180px, 22vw, 270px); padding-right: 48px; border-right: 1px solid rgba(240,180,76,.25); }
+    .b h1 { font-size: clamp(46px, 6vw, 82px); }
+    .b h1 em { font-size: .52em; margin-top: 10px; }
+    .ribbon {
+      position: relative;
+      display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 28px;
+      margin-top: 52px; padding: 22px 26px 22px 0;
+      background: linear-gradient(100deg, #f0b44c, #f6cd7e 55%, #e9a93b);
+      color: var(--wine-deep);
+      border-radius: 18px;
+      box-shadow: 0 24px 50px rgba(0,0,0,.3);
+    }
+    .ribbon-tag {
+      position: relative; align-self: stretch; display: flex; align-items: center;
+      margin: -22px 0; padding: 0 34px 0 28px;
+      background: var(--wine-deep); color: var(--gold);
+      border-radius: 18px 0 0 18px;
+      font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; line-height: 1.5;
+      clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 50%, 100% 100%, 0 100%);
+    }
+    .ribbon-main { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+    .ribbon-price small { display: block; font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; opacity: .7; }
+    .ribbon-price strong { font-family: var(--serif); font-size: 48px; line-height: 1; font-weight: 700; }
+    .ribbon-price p { margin: 2px 0 0; font-size: 12.5px; font-weight: 500; opacity: .8; }
+    .ribbon-list { margin: 0; padding: 0 0 0 28px; list-style: none; border-left: 1px solid rgba(46,14,18,.2); font-size: 14px; font-weight: 500; display: grid; gap: 4px; }
+    .ribbon-list li::before { content: "✓"; font-weight: 700; margin-right: 8px; }
+    .ribbon-cta { display: flex; gap: 10px; }
+    .ribbon .btn-ghost { border-color: rgba(46,14,18,.4); color: var(--wine-deep); }
+
+    /* ========== C: luggage tag ========== */
+    .c-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; }
+    .c-brand { display: flex; align-items: center; gap: 18px; margin-bottom: 34px; }
+    .c-brand img { width: 120px; }
+    .c-brand span { font-size: 12px; letter-spacing: .26em; text-transform: uppercase; color: var(--gold-soft); font-weight: 600; padding-left: 18px; border-left: 1px solid rgba(240,180,76,.3); line-height: 1.8; }
+    .c h1 { font-size: clamp(48px, 6.4vw, 86px); }
+    .c h1 em { font-size: .5em; margin-top: 12px; }
+    .c-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+    .tag-wrap { position: relative; display: flex; justify-content: center; padding-top: 70px; }
+    .tag-string { position: absolute; top: 0; left: 50%; width: 2px; height: 110px; background: linear-gradient(var(--gold-soft), rgba(233,194,122,.2)); transform-origin: top; }
+    .lug-tag {
+      position: relative; width: 330px;
+      padding: 64px 32px 32px;
+      background: linear-gradient(170deg, #f6cd7e, #f0b44c 60%, #e3a43a);
+      color: var(--wine-deep);
+      text-align: center;
+      clip-path: polygon(22% 0, 78% 0, 100% 12%, 100% 100%, 0 100%, 0 12%);
+      border-radius: 0 0 22px 22px;
+      box-shadow: 0 30px 60px rgba(0,0,0,.35);
+      transform: rotate(-4deg);
+      transform-origin: 50% -60px;
+      animation: swing 5s ease-in-out infinite;
+    }
+    .lug-tag::before { content: ""; position: absolute; top: 22px; left: 50%; width: 22px; height: 22px; margin-left: -11px; border-radius: 50%; background: var(--wine); box-shadow: inset 0 0 0 4px rgba(46,14,18,.35); }
+    .lug-tag small { display: block; font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; opacity: .7; }
+    .lug-tag .dest { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 1.1; margin: 6px 0 16px; }
+    .lug-tag hr { border: 0; border-top: 2px dashed rgba(46,14,18,.25); margin: 0 0 16px; }
+    .lug-tag strong { display: block; white-space: nowrap; font-family: var(--serif); font-size: clamp(40px, 11vw, 56px); line-height: 1; font-weight: 700; }
+    .lug-tag p { margin: 6px 0 0; font-size: 12.5px; font-weight: 500; }
+    .lug-tag .chips { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; margin: 18px 0 20px; }
+    .lug-tag .chips span { padding: 5px 10px; border-radius: 8px; background: rgba(46,14,18,.12); font-size: 12px; font-weight: 600; }
+    .lug-tag .btn { width: 100%; }
+    @keyframes swing { 0%,100% { transform: rotate(-4deg); } 50% { transform: rotate(-1.5deg); } }
+
+    @media (max-width: 900px) {
+      .a-grid, .c-grid { grid-template-columns: 1fr; gap: 40px; }
+      .ticket { transform: none; }
+      .b-top { grid-template-columns: 1fr; gap: 26px; }
+      .b-logo { padding-right: 0; border-right: 0; width: 160px; }
+      .ribbon { grid-template-columns: 1fr; padding: 0 22px 22px; gap: 18px; }
+      .ribbon-tag { margin: 0 -22px; padding: 14px 22px; border-radius: 18px 18px 0 0; clip-path: none; justify-content: center; }
+      .ribbon-list { border-left: 0; padding-left: 0; }
+      .ribbon-cta { flex-direction: column; }
+    }
+    @media (max-width: 480px) {
+      .ticket-info { grid-template-columns: 1fr 1fr; }
+      .ticket-route b { font-size: 24px; }
+      .lug-tag { width: 100%; max-width: 320px; }
+      .c-brand img { width: 96px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .lug-tag { animation: none; } }
+  </style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M21.9 4.3c.3-1.2-.9-2.2-2-1.7L2.6 9.3c-1.2.5-1.2 2.2.1 2.6l4.3 1.4 1.7 5.3c.3 1 1.6 1.3 2.3.6l2.4-2.3 4.4 3.2c.9.7 2.3.2 2.5-1zM9.6 14l8.3-7.4-6.7 8.6-.3 3-1.3-4.2z"/></symbol>
+</svg>
+
+<!-- ================= A ================= -->
+<div class="variant-tag" id="a">Варіант A · «Квиток у літо»</div>
+<section class="hero a">
+  <div class="wrap a-grid">
+    <div>
+      <img class="a-logo" src="../assets/logo.png" width="900" height="662" alt="Zlitay Travel">
+      <p class="eyebrow">Раннє бронювання · літо 2027</p>
+      <h1>Болгарія 2027<em>Готелі з власною пляжною зоною</em></h1>
+      <p class="sub">Цього літа можна відпочивати на першій лінії та користуватися виділеною пляжною зоною.</p>
+      <div class="a-cta">
+        <a class="btn btn-gold" href="#">Підібрати тур</a>
+        <a class="btn btn-ghost" href="#"><svg><use href="#i-tg"/></svg> Написати в Telegram</a>
+      </div>
+    </div>
+
+    <div class="ticket" aria-label="Пропозиція">
+      <span class="ticket-stamp">Місця обмежені</span>
+      <div class="ticket-head"><span>Квиток у літо</span><span>Червень 2027</span></div>
+      <div class="ticket-route">
+        <div><small>Звідки</small><b>Київ</b></div>
+        <div class="line"></div>
+        <div class="to"><small>Куди</small><b>Сонячний Берег</b></div>
+      </div>
+      <div class="ticket-info">
+        <div><small>Проживання</small><b>7 ночей</b></div>
+        <div><small>Харчування</small><b>AI / UAI</b></div>
+        <div><small>Проїзд</small><b>Автобус</b></div>
+      </div>
+      <div class="ticket-cut"></div>
+      <div class="ticket-price">
+        <div>
+          <small>Вартість від</small>
+          <strong>28 188 грн</strong>
+          <p>за 1 дорослого + дитину 10 років</p>
+        </div>
+        <a class="btn btn-dark" href="#">Забронювати</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= B ================= -->
+<div class="variant-tag" id="b">Варіант B · Логотип зліва + золота стрічка з офером</div>
+<section class="hero b">
+  <div class="wrap">
+    <div class="b-top">
+      <img class="b-logo" src="../assets/logo.png" width="900" height="662" alt="Zlitay Travel">
+      <div>
+        <p class="eyebrow">Раннє бронювання · літо 2027</p>
+        <h1>Болгарія 2027<em>Готелі з власною пляжною зоною</em></h1>
+        <p class="sub">Цього літа можна відпочивати на першій лінії та користуватися виділеною пляжною зоною. Сонячний Берег, автобус з Києва.</p>
+      </div>
+    </div>
+
+    <div class="ribbon">
+      <div class="ribbon-tag">Акційний<br>тариф</div>
+      <div class="ribbon-main">
+        <div class="ribbon-price">
+          <small>Вартість від</small>
+          <strong>28 188 грн</strong>
+          <p>за 1 дорослого + дитину 10 років</p>
+        </div>
+        <ul class="ribbon-list">
+          <li>Автобус Київ – Болгарія – Київ</li>
+          <li>7 ночей · харчування AI / UAI</li>
+          <li>Червень 2027</li>
+        </ul>
+      </div>
+      <div class="ribbon-cta">
+        <a class="btn btn-dark" href="#">Підібрати тур</a>
+        <a class="btn btn-ghost" href="#"><svg><use href="#i-tg"/></svg> Telegram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= C ================= -->
+<div class="variant-tag" id="c">Варіант C · Багажна бирка з ціною</div>
+<section class="hero c">
+  <div class="wrap c-grid">
+    <div>
+      <div class="c-brand">
+        <img src="../assets/logo.png" width="900" height="662" alt="Zlitay Travel">
+        <span>Раннє бронювання<br>літо 2027</span>
+      </div>
+      <h1>Болгарія 2027<em>Готелі з власною пляжною зоною</em></h1>
+      <p class="sub">Цього літа можна відпочивати на першій лінії та користуватися виділеною пляжною зоною.</p>
+      <ul class="facts">
+        <li>Автобус Київ – Болгарія – Київ</li>
+        <li>7 ночей</li>
+        <li>AI / UAI</li>
+      </ul>
+      <div class="c-cta">
+        <a class="btn btn-gold" href="#">Підібрати тур</a>
+        <a class="btn btn-ghost" href="#"><svg><use href="#i-tg"/></svg> Написати в Telegram</a>
+      </div>
+    </div>
+
+    <div class="tag-wrap">
+      <div class="tag-string"></div>
+      <div class="lug-tag">
+        <small>Пункт призначення</small>
+        <div class="dest">Сонячний Берег</div>
+        <hr>
+        <small>Вартість від</small>
+        <strong>28 188 грн</strong>
+        <p>за 1 дорослого + дитину 10 років</p>
+        <div class="chips"><span>Червень 2027</span><span>7 ночей</span><span>Місця обмежені</span></div>
+        <a class="btn btn-dark" href="#">Забронювати</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
