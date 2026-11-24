@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Болгарія 2027 · Готелі з власною пляжною зоною · Zlitay Travel</title>
-  <meta name="description" content="Тури в Болгарію на літо 2027: готелі на Сонячному Березі та Золотих Пісках з власною пляжною зоною. Автобус з Києва, 7 ночей, харчування AI/UAI. Від 28 188 грн за дорослого з дитиною.">
+  <meta name="description" content="Тури в Болгарію на літо 2027: готелі на Сонячному Березі з власною пляжною зоною. Автобус з Києва, 7 ночей, харчування AI/UAI. Від 28 188 грн за дорослого з дитиною.">
   <meta name="theme-color" content="#4d1b20">
   <link rel="icon" type="image/png" href="../assets/favicon.png">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Болгарія 2027 · Готелі з власною пляжною зоною">
-  <meta property="og:description" content="Сонячний Берег і Золоті Піски. Автобус з Києва, 7 ночей, AI/UAI. Від 28 188 грн.">
+  <meta property="og:description" content="Сонячний Берег. Автобус з Києва, 7 ночей, AI/UAI. Від 28 188 грн.">
   <meta property="og:image" content="../assets/logo.png">
 
   <!-- Google Tag Manager: replace GTM-XXXXXXX with the real container ID -->
@@ -157,22 +157,31 @@
     .hero-facts { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 26px; margin: 34px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 14px; }
     .hero-facts li::before { content: "✦"; color: var(--gold); margin-right: 8px; font-size: 11px; }
 
-    /* route */
-    .route { background: linear-gradient(180deg, rgba(46,14,18,0) 0%, rgba(46,14,18,.55) 50%, rgba(46,14,18,0) 100%); }
-    .route-box {
+    /* route: animated map as section background */
+    .route {
       position: relative;
-      max-width: 680px; margin: 0 auto;
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      background: radial-gradient(ellipse at 30% 20%, rgba(106,42,49,.6), rgba(46,14,18,.35));
+      min-height: clamp(560px, 78vh, 760px);
+      display: flex; align-items: center;
       overflow: hidden;
+      background: var(--wine-deep);
     }
-    .route-box svg { display: block; width: 100%; height: auto; }
-    .route-note { text-align: center; margin: 22px 0 0; color: var(--muted); }
+    .route-bg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    .route::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background:
+        linear-gradient(180deg, var(--wine) 0%, rgba(77,27,32,0) 7%, rgba(77,27,32,0) 85%, var(--wine) 100%),
+        linear-gradient(90deg, rgba(46,14,18,.96) 0%, rgba(46,14,18,.82) 34%, rgba(46,14,18,0) 62%);
+    }
+    .route .wrap { position: relative; z-index: 2; }
+    .route-text { max-width: 500px; }
+    .route-text .divider { justify-content: flex-start; }
+    .route-text .divider span:first-child { display: none; }
+    .route-text p.sub { margin: 0; color: var(--muted); font-size: 17px; }
+    .route-note { margin: 22px 0 0; color: var(--muted); font-size: 15px; }
     .route-note b { color: var(--gold-soft); font-weight: 600; }
-    .map-label { font-family: var(--sans); font-size: 15px; font-weight: 600; fill: var(--cream); }
-    .map-label.small { font-size: 12px; font-weight: 500; fill: var(--muted); letter-spacing: .12em; }
-    .map-sea-label { font-family: var(--serif); font-style: italic; font-size: 26px; fill: rgba(233,194,122,.45); }
+    .map-label { font-family: var(--sans); font-size: 20px; font-weight: 600; fill: var(--cream); }
+    .map-label.small { font-size: 14px; font-weight: 500; fill: var(--muted); letter-spacing: .12em; }
+    .map-sea-label { font-family: var(--serif); font-style: italic; font-size: 34px; fill: rgba(233,194,122,.45); }
     .pin-pulse { transform-box: fill-box; transform-origin: center; animation: pulse 2.4s ease-out infinite; }
     .pin-dest { opacity: 0; transition: opacity .6s ease; }
     .pin-dest.on { opacity: 1; }
@@ -192,7 +201,7 @@
     .benefit p { margin: 0; color: var(--muted); font-size: 15px; }
 
     /* hotels */
-    .hotels-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 26px; }
+    .hotels-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 14px; margin-bottom: 26px; }
     .chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .chip {
       padding: 10px 18px; border-radius: 999px;
@@ -359,9 +368,13 @@
       .chips { justify-content: center; }
       .sort { justify-content: center; }
       .mbar { display: flex; }
-      .map-label { font-size: 21px; }
-      .map-label.small { font-size: 15px; }
-      .map-sea-label { font-size: 32px; }
+      .map-label { font-size: 24px; }
+      .map-label.small { font-size: 16px; }
+      .route { align-items: flex-start; min-height: 780px; }
+      .route::after { background: linear-gradient(180deg, var(--wine) 0%, rgba(46,14,18,.92) 10%, rgba(46,14,18,.85) 36%, rgba(46,14,18,0) 58%, rgba(77,27,32,0) 88%, var(--wine) 100%); }
+      .route-text { text-align: center; margin: 0 auto; }
+      .route-text .divider { justify-content: center; }
+      .route-text .divider span:first-child { display: block; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -405,7 +418,7 @@
       <img class="hero-logo" src="../assets/logo.png" width="900" height="662" alt="Zlitay Travel">
       <p class="eyebrow">Раннє бронювання · літо 2027</p>
       <h1>Болгарія 2027<em>Готелі з власною пляжною зоною</em></h1>
-      <p class="hero-sub">Цього літа можна відпочивати на першій лінії та користуватися виділеною пляжною зоною. Сонячний Берег і Золоті Піски, автобус з Києва, 7 ночей біля моря.</p>
+      <p class="hero-sub">Цього літа можна відпочивати на першій лінії та користуватися виділеною пляжною зоною. Сонячний Берег, автобус з Києва, 7 ночей біля моря.</p>
 
       <div class="hero-price">
         <small>Вартість від</small>
@@ -431,97 +444,71 @@
 
   <!-- ROUTE -->
   <section class="route" id="route">
+    <svg class="route-bg" id="routeMap" viewBox="0 0 1440 720" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="seaGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#6a2a31" stop-opacity=".95"/>
+          <stop offset="1" stop-color="#3a1216" stop-opacity=".95"/>
+        </linearGradient>
+        <pattern id="waves" width="44" height="18" patternUnits="userSpaceOnUse">
+          <path d="M0 9 Q11 2 22 9 T44 9" fill="none" stroke="rgba(233,194,122,.16)" stroke-width="1.3"/>
+        </pattern>
+        <mask id="revealMain" maskUnits="userSpaceOnUse" x="0" y="0" width="1440" height="720"><path id="maskMain" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round"/></mask>
+      </defs>
+
+      <g fill="rgba(244,224,223,.08)">
+        <circle cx="660" cy="90" r="2.2"/><circle cx="760" cy="200" r="2.2"/><circle cx="880" cy="110" r="2.2"/><circle cx="980" cy="230" r="2.2"/>
+        <circle cx="700" cy="330" r="2.2"/><circle cx="1100" cy="70" r="2.2"/><circle cx="1320" cy="160" r="2.2"/><circle cx="1260" cy="300" r="2.2"/>
+        <circle cx="1380" cy="60" r="2.2"/><circle cx="640" cy="470" r="2.2"/><circle cx="700" cy="640" r="2.2"/><circle cx="1050" cy="360" r="2.2"/>
+        <circle cx="820" cy="420" r="2.2"/><circle cx="1180" cy="250" r="2.2"/><circle cx="600" cy="250" r="2.2"/>
+      </g>
+
+      <path id="sea" d="M820 470 C 880 420, 1000 400, 1120 410 C 1260 420, 1400 440, 1500 480 L 1500 760 L 800 760 C 770 690, 770 620, 790 560 C 800 520, 800 495, 820 470 Z" fill="url(#seaGrad)" stroke="rgba(240,180,76,.3)" stroke-width="1.6"/>
+      <use href="#sea" fill="url(#waves)" stroke="none"/>
+      <text class="map-sea-label" x="1170" y="620" text-anchor="middle">Чорне море</text>
+
+      <path id="pMain" d="M1180 130 C 1100 210, 980 250, 900 300 C 820 350, 770 420, 790 520 C 796 552, 800 572, 806 590" fill="none" stroke="rgba(244,224,223,.14)" stroke-width="3" stroke-dasharray="2 11" stroke-linecap="round"/>
+      <path data-copy="pMain" mask="url(#revealMain)" fill="none" stroke="#f0b44c" stroke-width="3.5" stroke-dasharray="12 10" stroke-linecap="round"/>
+
+      <g>
+        <circle class="pin-pulse" cx="1180" cy="130" r="10" fill="none" stroke="#f0b44c" stroke-width="2"/>
+        <circle cx="1180" cy="130" r="9" fill="#f0b44c"/>
+        <circle cx="1180" cy="130" r="3.5" fill="#2e0e12"/>
+        <text class="map-label" x="1202" y="126">Київ</text>
+        <text class="map-label small" x="1202" y="148">СТАРТ</text>
+      </g>
+
+      <g class="pin-dest" id="destSB">
+        <circle class="pin-pulse" cx="806" cy="590" r="9" fill="none" stroke="#f0b44c" stroke-width="2"/>
+        <circle cx="806" cy="590" r="8" fill="#f0b44c"/>
+        <text class="map-label" x="842" y="586">Сонячний Берег</text>
+        <text class="map-label small" x="842" y="608">БОЛГАРІЯ</text>
+      </g>
+
+      <g id="bus" transform="translate(1180 130)">
+        <g id="busFlip">
+          <g transform="translate(-27 -32) scale(1.22)">
+            <rect x="0" y="4" width="44" height="22" rx="5" fill="#f4e0df"/>
+            <rect x="0" y="4" width="44" height="6" rx="3" fill="#f0b44c"/>
+            <rect x="4" y="12" width="8" height="6" rx="1.5" fill="#4d1b20"/>
+            <rect x="14" y="12" width="8" height="6" rx="1.5" fill="#4d1b20"/>
+            <rect x="24" y="12" width="8" height="6" rx="1.5" fill="#4d1b20"/>
+            <path d="M34 12 h6 a2 2 0 0 1 2 2 v4 h-8 z" fill="#4d1b20"/>
+            <circle cx="10" cy="26" r="4" fill="#2e0e12" stroke="#f4e0df" stroke-width="1.5"/>
+            <circle cx="34" cy="26" r="4" fill="#2e0e12" stroke="#f4e0df" stroke-width="1.5"/>
+          </g>
+        </g>
+      </g>
+    </svg>
+
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="route-text reveal">
         <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
         <p class="eyebrow">Маршрут</p>
         <h2>З Києва просто до моря</h2>
-        <p>Автобусний проїзд Київ – Болгарія – Київ уже входить у вартість туру.</p>
+        <p class="sub">Автобусний проїзд Київ – Болгарія – Київ уже входить у вартість туру.</p>
+        <p class="route-note"><b>Виїзд можливий також з інших міст України.</b> Уточнюйте в менеджера.</p>
       </div>
-
-      <div class="route-box reveal">
-        <svg id="routeMap" viewBox="240 40 660 480" role="img" aria-label="Маршрут автобуса з Києва на Золоті Піски та Сонячний Берег">
-          <defs>
-            <linearGradient id="seaGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#6a2a31" stop-opacity=".9"/>
-              <stop offset="1" stop-color="#2e0e12" stop-opacity=".9"/>
-            </linearGradient>
-            <pattern id="waves" width="40" height="16" patternUnits="userSpaceOnUse">
-              <path d="M0 8 Q10 2 20 8 T40 8" fill="none" stroke="rgba(233,194,122,.16)" stroke-width="1.2"/>
-            </pattern>
-            <mask id="revealMain" maskUnits="userSpaceOnUse" x="0" y="0" width="900" height="520"><path id="maskMain" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/></mask>
-            <mask id="revealGS" maskUnits="userSpaceOnUse" x="0" y="0" width="900" height="520"><path id="maskGS" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/></mask>
-            <mask id="revealSB" maskUnits="userSpaceOnUse" x="0" y="0" width="900" height="520"><path id="maskSB" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/></mask>
-          </defs>
-
-          <!-- stylised land dots -->
-          <g fill="rgba(244,224,223,.07)">
-            <circle cx="120" cy="80" r="2"/><circle cx="200" cy="140" r="2"/><circle cx="280" cy="60" r="2"/><circle cx="360" cy="120" r="2"/>
-            <circle cx="160" cy="230" r="2"/><circle cx="240" cy="300" r="2"/><circle cx="110" cy="380" r="2"/><circle cx="300" cy="420" r="2"/>
-            <circle cx="430" cy="60" r="2"/><circle cx="760" cy="60" r="2"/><circle cx="820" cy="140" r="2"/><circle cx="520" cy="40" r="2"/>
-            <circle cx="200" cy="470" r="2"/><circle cx="380" cy="480" r="2"/><circle cx="80" cy="170" r="2"/>
-          </g>
-
-          <!-- Black Sea -->
-          <path d="M520 300 C 560 270, 640 262, 720 270 C 800 276, 860 300, 880 340 C 900 390, 880 460, 820 495 C 760 520, 640 520, 560 500 C 510 485, 492 450, 498 410 C 502 372, 490 330, 520 300 Z" fill="url(#seaGrad)" stroke="rgba(240,180,76,.28)" stroke-width="1.5"/>
-          <path d="M520 300 C 560 270, 640 262, 720 270 C 800 276, 860 300, 880 340 C 900 390, 880 460, 820 495 C 760 520, 640 520, 560 500 C 510 485, 492 450, 498 410 C 502 372, 490 330, 520 300 Z" fill="url(#waves)"/>
-          <text class="map-sea-label" x="720" y="420" text-anchor="middle">Чорне море</text>
-
-          <!-- route paths (ghost) -->
-          <path id="pMain" d="M690 92 C 640 150, 560 180, 520 210 C 480 240, 470 262, 474 292" fill="none" stroke="rgba(244,224,223,.12)" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
-          <path id="pGS" d="M474 292 C 478 304, 488 316, 500 326" fill="none" stroke="rgba(244,224,223,.12)" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
-          <path id="pSB" d="M474 292 C 462 330, 466 380, 498 420" fill="none" stroke="rgba(244,224,223,.12)" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
-
-          <!-- route paths (revealed, gold dashed) -->
-          <g fill="none" stroke="#f0b44c" stroke-width="3" stroke-dasharray="10 9" stroke-linecap="round">
-            <path data-copy="pMain" mask="url(#revealMain)"/>
-            <path data-copy="pGS" mask="url(#revealGS)"/>
-            <path data-copy="pSB" mask="url(#revealSB)"/>
-          </g>
-
-          <!-- Kyiv -->
-          <g>
-            <circle class="pin-pulse" cx="690" cy="92" r="9" fill="none" stroke="#f0b44c" stroke-width="2"/>
-            <circle cx="690" cy="92" r="8" fill="#f0b44c"/>
-            <circle cx="690" cy="92" r="3" fill="#2e0e12"/>
-            <text class="map-label" x="708" y="88">Київ</text>
-            <text class="map-label small" x="708" y="106">СТАРТ</text>
-          </g>
-
-          <!-- Golden Sands -->
-          <g class="pin-dest" id="destGS">
-            <circle class="pin-pulse" cx="500" cy="326" r="8" fill="none" stroke="#f0b44c" stroke-width="2"/>
-            <circle cx="500" cy="326" r="7" fill="#f0b44c"/>
-            <text class="map-label" x="516" y="322">Золоті Піски</text>
-            <text class="map-label small" x="516" y="340">БОЛГАРІЯ</text>
-          </g>
-
-          <!-- Sunny Beach -->
-          <g class="pin-dest" id="destSB">
-            <circle class="pin-pulse" cx="498" cy="420" r="8" fill="none" stroke="#f0b44c" stroke-width="2"/>
-            <circle cx="498" cy="420" r="7" fill="#f0b44c"/>
-            <text class="map-label" x="466" y="428" text-anchor="end">Сонячний Берег</text>
-            <text class="map-label small" x="466" y="446" text-anchor="end">БОЛГАРІЯ</text>
-          </g>
-
-          <!-- bus -->
-          <g id="bus" transform="translate(690 92)">
-            <g id="busFlip">
-              <g transform="translate(-22 -26)">
-                <rect x="0" y="4" width="44" height="22" rx="5" fill="#f4e0df"/>
-                <rect x="0" y="4" width="44" height="6" rx="3" fill="#f0b44c"/>
-                <rect x="4" y="12" width="8" height="6" rx="1.5" fill="#4d1b20"/>
-                <rect x="14" y="12" width="8" height="6" rx="1.5" fill="#4d1b20"/>
-                <rect x="24" y="12" width="8" height="6" rx="1.5" fill="#4d1b20"/>
-                <path d="M34 12 h6 a2 2 0 0 1 2 2 v4 h-8 z" fill="#4d1b20"/>
-                <circle cx="10" cy="26" r="4" fill="#2e0e12" stroke="#f4e0df" stroke-width="1.5"/>
-                <circle cx="34" cy="26" r="4" fill="#2e0e12" stroke="#f4e0df" stroke-width="1.5"/>
-              </g>
-            </g>
-          </g>
-        </svg>
-      </div>
-      <p class="route-note reveal"><b>Виїзд можливий також з інших міст України.</b> Уточнюйте в менеджера.</p>
     </div>
   </section>
 
@@ -569,11 +556,6 @@
       <p class="price-note reveal">Вартість вказана за 1 дорослого + дитину 10 років, 7 ночей проживання.</p>
 
       <div class="hotels-tools reveal">
-        <div class="chips" role="group" aria-label="Курорт">
-          <button class="chip" type="button" data-resort="all" aria-pressed="true">Усі</button>
-          <button class="chip" type="button" data-resort="Сонячний Берег" aria-pressed="false">Сонячний Берег</button>
-          <button class="chip" type="button" data-resort="Золоті Піски" aria-pressed="false">Золоті Піски</button>
-        </div>
         <label class="sort">Сортувати:
           <select id="sortSel">
             <option value="asc">Спочатку дешевші</option>
@@ -748,8 +730,6 @@
     { name: 'MPM Orel', stars: '3', resort: 'Сонячний Берег', meal: 'UAI', price: 28188, dates: '02–11 червня' },
     { name: 'MPM Astoria', stars: '4/3', resort: 'Сонячний Берег', meal: 'UAI', price: 36314, dates: '02–11 червня' },
     { name: 'Blue Pearl', stars: '4', resort: 'Сонячний Берег', meal: 'AI', price: 41719, dates: '03–12 червня' },
-    { name: 'Prestige Hotel & Aqua Park', stars: '4', resort: 'Золоті Піски', meal: 'AI', price: 41974, dates: '01–10 червня' },
-    { name: 'Prestige Grand Hotel & Aquapark', stars: '4', resort: 'Золоті Піски', meal: 'AI', price: 42417, dates: '01–10 червня' },
     { name: 'Dreams Sunny Beach Resort & Spa', stars: '5/4', resort: 'Сонячний Берег', meal: 'AI', price: 54152, dates: '01–10 червня' }
   ];
 
@@ -804,14 +784,6 @@
     }).join('');
   }
 
-  document.querySelectorAll('.chip').forEach(function (c) {
-    c.addEventListener('click', function () {
-      document.querySelectorAll('.chip').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
-      c.setAttribute('aria-pressed', 'true');
-      state.resort = c.getAttribute('data-resort');
-      render();
-    });
-  });
   document.getElementById('sortSel').addEventListener('change', function (e) { state.sort = e.target.value; render(); });
   render();
 
@@ -870,74 +842,73 @@
   document.querySelectorAll('.reveal').forEach(function (el) { io ? io.observe(el) : el.classList.add('in'); });
 
   /* route animation */
-  var pMain = document.getElementById('pMain'), pGS = document.getElementById('pGS'), pSB = document.getElementById('pSB');
-  var mMain = document.getElementById('maskMain'), mGS = document.getElementById('maskGS'), mSB = document.getElementById('maskSB');
+  var map = document.getElementById('routeMap');
+  function fitMap() {
+    var W = Math.max(1, map.clientWidth), H = Math.max(1, map.clientHeight), A = W / H;
+    if (window.innerWidth >= 640) {
+      // keep the whole route area (x 600..1440, y 60..690) visible, anchored right
+      var rw = 860, rh = 720, x1 = 1460, y0 = -20, vw, vh;
+      if (A >= rw / rh) { vh = rh; vw = rh * A; }
+      else { vw = rw; vh = rw / A; y0 = -20 - (vh - rh) / 2; }
+      map.setAttribute('viewBox', (x1 - vw).toFixed(0) + ' ' + y0.toFixed(0) + ' ' + vw.toFixed(0) + ' ' + vh.toFixed(0));
+      return;
+    }
+    // mobile: show the route area (x 650..1310) at the bottom, under the text
+    var w = 660, h = w * (map.clientHeight / Math.max(1, map.clientWidth));
+    map.setAttribute('viewBox', '650 ' + (680 - h).toFixed(0) + ' ' + w + ' ' + h.toFixed(0));
+  }
+  fitMap();
+  window.addEventListener('resize', fitMap);
+
+  var pMain = document.getElementById('pMain'), mMain = document.getElementById('maskMain');
   document.querySelectorAll('[data-copy]').forEach(function (g) {
     g.setAttribute('d', document.getElementById(g.getAttribute('data-copy')).getAttribute('d'));
   });
-  [[pMain, mMain], [pGS, mGS], [pSB, mSB]].forEach(function (pair) {
-    pair[1].setAttribute('d', pair[0].getAttribute('d'));
-    var L = pair[0].getTotalLength();
-    pair[1].style.strokeDasharray = L;
-    pair[1].style.strokeDashoffset = L;
-  });
-  var LM = pMain.getTotalLength(), LG = pGS.getTotalLength(), LS = pSB.getTotalLength();
+  mMain.setAttribute('d', pMain.getAttribute('d'));
+  var LM = pMain.getTotalLength();
+  mMain.style.strokeDasharray = LM;
+  mMain.style.strokeDashoffset = LM;
   var bus = document.getElementById('bus'), flip = document.getElementById('busFlip');
-  var dGS = document.getElementById('destGS'), dSB = document.getElementById('destSB');
+  var dSB = document.getElementById('destSB');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function placeBus(path, len, t) {
-    var at = len * t;
-    var p = path.getPointAtLength(at);
-    var q = path.getPointAtLength(Math.min(len, at + 1));
+  function placeBus(t) {
+    var at = LM * t;
+    var p = pMain.getPointAtLength(at);
+    var q = pMain.getPointAtLength(Math.min(LM, at + 1));
     var dx = q.x - p.x;
     bus.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ' ' + p.y.toFixed(1) + ')');
     if (Math.abs(dx) > 0.05) flip.setAttribute('transform', dx < 0 ? 'scale(-1 1)' : 'scale(1 1)');
   }
-
-  function showFinal() {
-    mMain.style.strokeDashoffset = 0; mGS.style.strokeDashoffset = 0; mSB.style.strokeDashoffset = 0;
-    dGS.classList.add('on'); dSB.classList.add('on');
-    placeBus(pSB, LS, 1);
-  }
+  function showFinal() { mMain.style.strokeDashoffset = 0; dSB.classList.add('on'); placeBus(1); }
 
   if (reduce) { showFinal(); return; }
 
-  var T_MAIN = 3800, T_BRANCH = 2200, T_HOLD = 2600, T_TOTAL = T_MAIN + T_BRANCH + T_HOLD;
+  var T_DRIVE = 5200, T_HOLD = 2600, T_TOTAL = T_DRIVE + T_HOLD;
   var start = null, running = false, raf = null;
   function ease(t) { return t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
 
   function frame(ts) {
     if (!start) start = ts;
     var e = (ts - start) % T_TOTAL;
-    if (e < T_MAIN) {
-      var t = ease(e / T_MAIN);
+    if (e < T_DRIVE) {
+      var t = ease(e / T_DRIVE);
       mMain.style.strokeDashoffset = LM * (1 - t);
-      mGS.style.strokeDashoffset = LG; mSB.style.strokeDashoffset = LS;
-      dGS.classList.remove('on'); dSB.classList.remove('on');
-      placeBus(pMain, LM, t);
-    } else if (e < T_MAIN + T_BRANCH) {
-      var b = ease((e - T_MAIN) / T_BRANCH);
-      mMain.style.strokeDashoffset = 0;
-      mGS.style.strokeDashoffset = LG * (1 - Math.min(1, b * 1.8));
-      mSB.style.strokeDashoffset = LS * (1 - b);
-      if (b > 0.55) dGS.classList.add('on');
-      if (b > 0.97) dSB.classList.add('on');
-      placeBus(pSB, LS, b);
+      dSB.classList.toggle('on', t > 0.97);
+      placeBus(t);
     } else {
       showFinal();
     }
     if (running) raf = requestAnimationFrame(frame);
   }
 
-  var box = document.getElementById('routeMap');
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (en.isIntersecting && !running) { running = true; raf = requestAnimationFrame(frame); }
         else if (!en.isIntersecting && running) { running = false; cancelAnimationFrame(raf); }
       });
-    }, { threshold: 0.25 }).observe(box);
+    }, { threshold: 0.2 }).observe(map);
   } else { running = true; raf = requestAnimationFrame(frame); }
 })();
 </script>
